@@ -13,7 +13,7 @@ Telecom companies lose significant revenue when customers leave. This project us
 ##  Dataset Overview
 
 - **Source**: [Kaggle – Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
-- **Size**: 7,043 customer records
+- **Size**: 7,043 customer records (7,032 after removing rows with missing `TotalCharges`)
 - **Target Variable**: `Churn` (Yes = customer left, No = customer stayed)
 - **Key Features**: `tenure`, `MonthlyCharges`, `Contract`, `InternetService`, and `PaymentMethod`
 
@@ -41,21 +41,21 @@ Telecom companies lose significant revenue when customers leave. This project us
 - Evaluated using accuracy, precision, recall, and classification report
 
 ### 5. Feature Importance
-- Identified `tenure`, `MonthlyCharges`, and `Contract_Two year` as the top churn predictors
+- Identified `tenure`, `InternetService_Fiber optic`, and `TotalCharges` as the top churn predictors
 
 ---
 
 ##  Results
 
-- **Model Accuracy**: 79%
-- **Key Insight**: Short-tenure customers on month-to-month contracts are most likely to churn
+- **Model Accuracy**: 78% (77.8% on a stratified 20% test set of 1,407 customers)
+- **Key Insight**: Short-tenure customers are the most likely to churn. Fibre-optic customers (42% churn) and month-to-month customers (43% churn) are also high-risk groups
 - **Business Use**: Helps telecom companies target at-risk customers with better offers
 
 ---
 
 ## Ethical, Privacy & Data Security Considerations
 
-We addressed concerns such as:
+I addressed concerns such as:
 - **Privacy**: Removed identifiers and minimized data use
 - **Security**: Recommended encryption and access controls
 - **Ethics**: Proposed transparency, informed consent, and fairness audits
